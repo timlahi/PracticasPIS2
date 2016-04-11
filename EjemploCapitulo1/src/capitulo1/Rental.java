@@ -1,20 +1,20 @@
 package capitulo1;
 
 class Rental {
-	private Movie _movie;
-	private int _daysRented;
+	private Movie movie;
+	private int daysRented;
 
 	public Rental(Movie movie, int daysRented) {
-		_movie = movie;
-		_daysRented = daysRented;
+		this.movie = movie;
+		this.daysRented = daysRented;
 	}
 
 	public int getDaysRented() {
-		return _daysRented;
+		return this.daysRented;
 	}
 
 	public Movie getMovie() {
-		return _movie;
+		return this.movie;
 	}
 
 	int getFrequentRenterPoints() {
@@ -28,6 +28,7 @@ class Rental {
 	double getCharge() { // Hemos movido este método desde la clase Customer
 		double result = 0;
 		switch (getMovie().getPriceCode()) {
+		
 		case Movie.REGULAR:
 			result += 2;
 			if (getDaysRented() > 2)
@@ -41,6 +42,8 @@ class Rental {
 			if (getDaysRented() > 3)
 				result += (getDaysRented() - 3) * 1.5;
 			break;
+			
+		default :break;
 		}
 		return result;
 	}
